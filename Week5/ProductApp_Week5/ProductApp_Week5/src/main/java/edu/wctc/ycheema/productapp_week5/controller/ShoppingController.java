@@ -5,9 +5,11 @@
  */
 package edu.wctc.ycheema.productapp_week5.controller;
 
+import edu.wctc.ycheema.productapp_week5.model.Product;
 import edu.wctc.ycheema.productapp_week5.model.ProductService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -63,7 +65,7 @@ public class ShoppingController extends HttpServlet {
             throws ServletException, IOException {
         ProductService prodService = new ProductService();
 		RequestDispatcher dispatcher = null;
-                dispatcher.forward(request, response);
+        int cartId = prodService.getName(id);
     }
 
     /**
