@@ -17,19 +17,19 @@
          <table>
                     <tr>
                         <td>Product Name</td>
-                        <td><c:out value="${product.prodName}"/></td>
+                        <td><c:out value="${prod.prodName}"/></td>
                     </tr>
                     <tr>
                         <td>Product Price</td>
-                        <td><c:out value="${product.price}"/></td>
+                        <td><c:out value="${prod.price}"/></td>
                     </tr>
                     <tr>
                         <td>Quantity</td>
-                        <td><c:out value="${product.prodDetails.qty}"/></td>
+                        <td><c:out value="${prod.prodDetails.qty}"/></td>
                     </tr>
                     <tr>
                         <td>Short Description</td>
-                        <td><c:out value="${product.prodDetail.prodDetails}"/></td>
+                        <td><c:out value="${prod.prodDetail.prodDetails}"/></td>
                     </tr>
                     
                 </table>
