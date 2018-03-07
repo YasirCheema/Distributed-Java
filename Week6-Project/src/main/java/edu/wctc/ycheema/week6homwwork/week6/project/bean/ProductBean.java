@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Named;
@@ -26,6 +27,18 @@ public class ProductBean implements Serializable {
     private final ProductService prodService = new ProductService();
     private Product product;
     private List<Product> prodList;
+    
+    @ManagedProperty(value = "#(cart)")
+    Cart mycart;
+
+    public Cart getMycart() {
+        return mycart;
+    }
+
+    public void setMycart(Cart mycart) {
+        this.mycart = mycart;
+    }
+    
 
     public ProductBean() {
     }
@@ -49,6 +62,10 @@ public class ProductBean implements Serializable {
     public String allNames(){
         prodList = prodService.getAllNames();
         return "prodList";
+    }
+    public void addToCart(){
+        mycart.add(product);
+        
     }
     public void prodDetail(AjaxBehaviorEvent event){
         try{
