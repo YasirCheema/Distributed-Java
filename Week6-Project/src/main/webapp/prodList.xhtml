@@ -9,8 +9,8 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:dataTable value="#{productBean.prodList}" var="prodName"
-                         rowKey="#{product.id}" selection="#{productBean.name}"
+            <p:dataTable value="#{productBean.prodList}" var="product"
+                         rowKey="#{product.id}" selection="#{productBean.product}"
                          selectionMode="single">
             
             <f:ajax event="rowSelect" listener="#{productBean.prodDetail}" />
@@ -18,7 +18,14 @@
                 <h:outputText value="#{product.prodName}"/>
             </p:column>
             <p:column>
-                <h:outputText value="#{prodcut.price}" />
+                <h:outputText value="#{product.price}" />
+            </p:column>
+            <p:column>
+                <h:selectOneMenu value="#{}">
+   			<f:selectItem itemValue="Cream Latte" itemLabel="Coffee3 - Cream Latte" />
+   			<f:selectItem itemValue="Extreme Mocha" itemLabel="Coffee3 - Extreme Mocha" />
+   			<f:selectItem itemValue="Buena Vista" itemLabel="Coffee3 - Buena Vista" />
+   		</h:selectOneMenu>
             </p:column>
             </p:dataTable>
         </h:form>

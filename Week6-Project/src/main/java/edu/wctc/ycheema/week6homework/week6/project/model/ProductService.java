@@ -16,11 +16,11 @@ import java.util.List;
 public class ProductService {
     private List<Product> prodList = Arrays.asList(
     new Product("1", "Nike Air Max 95", 250.00,
-    new ProductDetail("-----------", "The Nike Air shows provide a best running experience"
+    new ProductDetail("Leather upper, lining", "The Nike Air shows provide a best running experience"
             + "It is comfortable and convience.")
     ),
     new Product("2", "Addidas Cloudrush", 105.95,
-    new ProductDetail("*******","The most comfortable and convient sport shoes")),
+    new ProductDetail("The ON Cloudrush is a performance uptempo running shoe","The most comfortable and convient sport shoes")),
      new Product("3", "Clarks Desert Boots", 199.00,
      new ProductDetail("++++++++++++++","The Desert Boot is an icon for cultures in all "
              + "corners of the globe. it is silhouette defense cool.")));

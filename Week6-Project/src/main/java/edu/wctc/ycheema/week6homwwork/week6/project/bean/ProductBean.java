@@ -10,14 +10,18 @@ import edu.wctc.ycheema.week6homework.week6.project.model.ProductService;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
+import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
+import javax.inject.Named;
 
 /**
  *
  * @author Dell
  */
+@Named(value = "productBean")
+@SessionScoped
 public class ProductBean implements Serializable {
     private final ProductService prodService = new ProductService();
     private Product product;
@@ -44,9 +48,9 @@ public class ProductBean implements Serializable {
     
     public String allNames(){
         prodList = prodService.getAllNames();
-        return "nameList";
+        return "prodList";
     }
-    public void nameDetail(AjaxBehaviorEvent event){
+    public void prodDetail(AjaxBehaviorEvent event){
         try{
             FacesContext.getCurrentInstance().getExternalContext()
                     .redirect("prodDetail.xhtml?id=" + product.getId());
