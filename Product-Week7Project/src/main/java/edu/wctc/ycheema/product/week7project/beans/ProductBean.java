@@ -31,13 +31,13 @@ public class ProductBean implements Serializable{
     private List<Product> prodList;
     
     @ManagedProperty(value = "#(cart)")
-    Cart mycart;
+    CartBean mycart;
 
-    public Cart getMycart() {
+    public CartBean getMycart() {
         return mycart;
     }
 
-    public void setMycart(Cart mycart) {
+    public void setMycart(CartBean mycart) {
         this.mycart = mycart;
     }
     
@@ -66,7 +66,7 @@ public class ProductBean implements Serializable{
         return "prodList";
     }
     public void addToCart(){
-        mycart.add(product);
+        mycart.addToCart(product);
         
     }
     public void prodDetail(AjaxBehaviorEvent event){
