@@ -1,46 +1,37 @@
 package edu.wctc.ycheema.week9.namesapp9.model;
 
+import edu.wctc.ycheema.week9.namesapp9.data.AddressDAO;
+import edu.wctc.ycheema.week9.namesapp9.data.NameDAO;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class NameService {
 
-	private List<Name> nameList = Arrays.asList(
-		new Name("1", "Fred", "Jones",
-			new Address("123 Main", "Milwaukee", "WI", "12345")
-		),
-		new Name("2", "Joe", "Smith",
-			new Address("456 Baxter", "Springfield", "IL", "54321")
-		)
-	);
+	
 
 	public Name getName(String id) {
-		Name theName = null;
-
-		for (Name name : nameList) {
-			if (name.getId().equals(id)) {
-				theName = name;
-			}
-		}
-
-		return theName;
+		
+		return null;
 	}
 
-	public List<Name> getAllNames(){
-		return nameList;
+	public List<Name> getAllNames() throws Exception {
+            NameDAO nameDao = new NameDAO();
+            List<Name> nameList = nameDao.getNames();
+            
+		if(nameList != null){
+                    AddressDAO addressDAO = new AddressDAO();
+                    for(Name name : nameList){
+                        name.setAddress(addressDAO.getAddress(name));
+                    }
+                    
+                }
+                return nameList;
 	}
 
 	public List<Name> findNames(String search) {
-		search = search.toLowerCase();
-		List<Name> theList = new ArrayList<>();
-		for (Name name : nameList) {
-			if (name.getFirst().toLowerCase().startsWith(search) ||
-			    name.getLast().toLowerCase().startsWith(search)) {
-				theList.add(name);
-			}
-		}
-		return theList;
+		
+		return null;
 	}
 	
 }

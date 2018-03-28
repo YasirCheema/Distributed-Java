@@ -55,7 +55,7 @@ public class NameBean implements Serializable {
 		}
 	}
 
-	public String allNames() {
+	public String allNames() throws Exception {
 		nameList = nameService.getAllNames();
 		return "nameList";
 	}
